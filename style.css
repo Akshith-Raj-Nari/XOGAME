@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #727171;
+  font-family: "Arial", sans-serif;
+}
+.container h1 {
+  margin: 50px;
+  color: #ffffff;
+  margin-bottom: 150px;
+  font-size: 50px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.container .board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 300px;
+  margin-bottom: 35px;
+}
+.container .board .square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+.container .board .square:hover {
+  background-color: #9a9a9a;
+}
+.container button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+.container button:hover {
+  background-color: #9a9a9a;
+}
+.container #message {
+  margin-top: 20px;
+  font-size: 80px;
+  color: #000000;
+}
+
+/*# sourceMappingURL=style.css.map */
