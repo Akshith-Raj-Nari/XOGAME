@@ -5,26 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XO Game</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./tictactoe.js"></script>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+    <script defer src="./tictactoe.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>XO Game</h1>
         <div class="board">
-            <div class="square" onclick="makeMove(0)"></div>
-            <div class="square" onclick="makeMove(1)"></div>
-            <div class="square" onclick="makeMove(2)"></div>
-            <div class="square" onclick="makeMove(3)"></div>
-            <div class="square" onclick="makeMove(4)"></div>
-            <div class="square" onclick="makeMove(5)"></div>
-            <div class="square" onclick="makeMove(6)"></div>
-            <div class="square" onclick="makeMove(7)"></div>
-            <div class="square" onclick="makeMove(8)"></div>
+            <!-- Dynamically generate squares to reduce redundancy -->
+            <script>
+                for (let i = 0; i < 9; i++) {
+                    document.write(`<div id="${i}" class="square" onclick="makeMove(${i})"></div>`);
+                }
+            </script>
         </div>
-        <button onclick="newGame()">Reset Game</button><br>
+        <button onclick="newGame()">Reset Game</button>
         <div id="message"></div>
+        <div class="scoreboard">
+            <p id="scoreX">X: 0</p>
+            <p id="scoreO">O: 0</p>
+        </div>
     </div>
 </body>
 </html>

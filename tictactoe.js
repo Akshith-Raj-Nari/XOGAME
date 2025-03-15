@@ -1,43 +1,58 @@
-let board = ["", "", "", "", "", "", "", "", ""];
-let currentPlayer = "X";
-let scores = { "X": 0, "O": 0 };
+let board = Array(9).fill(""), currentPlayer = "X", scores = { X: 0, O: 0 };
 
-function makeMove(index){
-    if (board[index] === "") {
-        board[index] = currentPlayer;
-        document.getElementsByClassName("square")[index].innerText = currentPlayer;
+function makeMove(index) {
+    if (board[index] || checkWin()) return;
 
-        if (checkWin()) {
-            document.getElementById("message").innerHTML = 'Winner: ' + currentPlayer;
-            scores[currentPlayer]++;
-        } else if (board.every(square => square !== "")) {
-            document.getElementById("message").innerHTML = `It's a draw!`;
-        } else {
-            currentPlayer = currentPlayer === "X" ? "O" : "X";
-        }
+    board[index] = currentPlayer;
+    updateBoardUI(index);
+
+    if (checkWin()) {
+        displayMessage(`Winner: ${currentPlayer}`);
+        scores[currentPlayer]++;
+        updateScoreboard();
+    } else if (board.every(square => square)) {
+        displayMessage("It's a draw!");
+    } else {
+        switchPlayer();
     }
 }
+
 function checkWin() {
     const winPatterns = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8],
         [0, 3, 6], [1, 4, 7], [2, 5, 8],
         [0, 4, 8], [2, 4, 6]
     ];
-    return winPatterns.some(pattern =>
-        board[pattern[0]] === currentPlayer &&
-        board[pattern[1]] === currentPlayer &&
-        board[pattern[2]] === currentPlayer
+    return winPatterns.some(pattern => 
+        pattern.every(index => board[index] === currentPlayer)
     );
 }
 
+function switchPlayer() {
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+}
+
 function newRound() {
-    board = ["", "", "", "", "", "", "", "", ""];
+    board.fill("");
     document.querySelectorAll(".square").forEach(square => square.innerText = "");
-    document.getElementById("message").innerText = "";
+    displayMessage("");
 }
 
 function newGame() {
-    scores = { "X": 0, "O": 0 };
+    scores = { X: 0, O: 0 };
     newRound();
     updateScoreboard();
+}
+
+function updateBoardUI(index) {
+    document.getElementById(index).innerText = currentPlayer;
+}
+
+function displayMessage(msg) {
+    document.getElementById("message").innerText = msg;
+}
+
+function updateScoreboard() {
+    document.getElementById("scoreX").innerText = `X: ${scores.X}`;
+    document.getElementById("scoreO").innerText = `O: ${scores.O}`;
 }

@@ -2,21 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #727171;
   font-family: "Arial", sans-serif;
 }
 .container h1 {
-  margin: 50px;
+  margin: 50px 0 150px;
   color: #ffffff;
-  margin-bottom: 150px;
   font-size: 50px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 .container .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  gap: 10px;
   width: 300px;
   margin-bottom: 35px;
 }
@@ -31,6 +30,7 @@
   font-size: 24px;
   font-weight: bold;
   color: #333;
+  transition: background-color 0.2s ease-in-out;
 }
 .container .board .square:hover {
   background-color: #9a9a9a;
@@ -44,6 +44,7 @@
   font-weight: bold;
   color: #333;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 .container button:hover {
   background-color: #9a9a9a;

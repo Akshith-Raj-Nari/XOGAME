@@ -1,24 +1,26 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #727171;
     font-family: 'Arial', sans-serif;
-    h1{
-        margin: 50px;
+
+    h1 {
+        margin: 50px 0 150px;
         color: #ffffff;
-        margin-bottom: 150px;
         font-size: 50px;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
-    .board{
+
+    .board {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
+        gap: 10px;
         width: 300px;
         margin-bottom: 35px;
-        .square{
+
+        .square {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -29,12 +31,15 @@
             font-size: 24px;
             font-weight: bold;
             color: #333;
-            &:hover{
+            transition: background-color 0.2s ease-in-out;
+
+            &:hover {
                 background-color: #9a9a9a;
             }
         }
     }
-    button{
+
+    button {
         padding: 10px 20px;
         background-color: #ffffff;
         border: none;
@@ -43,11 +48,14 @@
         font-weight: bold;
         color: #333;
         cursor: pointer;
-        &:hover{
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
             background-color: #9a9a9a;
         }
     }
-    #message{
+
+    #message {
         margin-top: 20px;
         font-size: 80px;
         color: #000000;
